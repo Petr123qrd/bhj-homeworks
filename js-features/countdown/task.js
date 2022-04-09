@@ -1,14 +1,11 @@
-const addText = function(){
-    const timer = document.getElementById("timer");
-    timer.textContent -= 1;
-}
-    setInterval(addText, 1000)
+const addText = function() {
+      const timer = document.getElementById("timer");
+          timer.textContent -= 1;
+          if (timer.textContent == 0) {
+              alert("Вы победили в конкурсе!");
+              (timer.textContent = 60 );
+          }  
+}  
 
-    setTimeout (
-        () => {
-            alert( "Вы победили в конкурсе!" );
-        },
-        60 * 1000
-    );
-
+setInterval(addText, 1000)
     
