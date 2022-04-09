@@ -2,16 +2,14 @@ const element = document.getElementById("cookie");
 
 element.onclick = function() {
     clicker__counter.textContent ++;
-};
-
-const image = document.getElementById("cookie");
-
-function changeSizes() {
-    image.width = 100;
-    image.height = 100;
-};
-
-img.onclick = changeSizes;
+    
+      if (clicker__counter.textContent % 2 == 0) {
+         (element.width = 200);  
+      }
+      else if (!clicker__counter.textContent % 2 == 0) {
+        (element.width = 100);
+      }
+}
 
 
 
@@ -19,11 +17,7 @@ img.onclick = changeSizes;
 
 
 
-
-
-
-
-
+   
 
 
 
