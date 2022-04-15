@@ -3,7 +3,7 @@ const prev = document.querySelector('.slider__arrow_prev');
 const next = document.querySelector('.slider__arrow_next');
 let count = 0;
 
-for (let sliders of Array.from(sliderItem)) {
+const sliders = Array.from(sliderItem);
     prev.onclick = function() {
         if (count == 0) {
             sliderItem.item(count).classList.toggle('slider__item_active');
@@ -27,4 +27,3 @@ for (let sliders of Array.from(sliderItem)) {
         }
    
     }
-}
