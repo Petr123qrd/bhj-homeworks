@@ -4,26 +4,14 @@ const next = document.querySelector('.slider__arrow_next');
 let count = 0;
 
 const sliders = Array.from(sliderItem);
-    prev.onclick = function() {
-        if (count == 0) {
-            sliderItem.item(count).classList.toggle('slider__item_active');
-            count = sliderItem.length - 1;
-            sliderItem.item(count).classList.toggle('slider__item_active');
-        } else {
-            sliderItem.item(count).classList.toggle('slider__item_active');    
-            count --;
-            sliderItem.item(count).classList.toggle('slider__item_active');
-        }
-    }
-    next.onclick = function() {
-        if (count == sliderItem.length - 1) {
-            sliderItem.item(count).classList.toggle('slider__item_active');
-            count = 0;
-            sliderItem.item(count).classList.toggle('slider__item_active');
-        } else {
-            sliderItem.item(count).classList.toggle('slider__item_active');    
-            count ++;
-            sliderItem.item(count).classList.toggle('slider__item_active');
-        }
-   
-    }
+
+prev.onclick = function() {  
+        sliderItem.item(count).classList.toggle('slider__item_active');
+        count = count == sliderItem.length - 1 ? 0 : count + 1;
+        sliderItem.item(count).classList.toggle('slider__item_active');
+}
+next.onclick = function() { 
+        sliderItem.item(count).classList.toggle('slider__item_active');
+        count = count == sliderItem.length - 1 ? 0 : count + 1;
+        sliderItem.item(count).classList.toggle('slider__item_active');
+}
