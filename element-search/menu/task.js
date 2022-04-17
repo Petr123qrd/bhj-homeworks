@@ -1,16 +1,24 @@
-const links = Array.from(document.querySelectorAll('.menu__link'));
+const menuItem = document.getElementsByClassName('menu__item');
+const menuLink = document.getElementsByClassName('menu__link');
+const active = document.querySelector('.menu_active');
 
-for (let link of links) {
-	link.onclick = function () {
-		const parent = link.parentElement;
-		if (parent.querySelector('ul.menu_sub').className === 'menu menu_sub') {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
-		} else {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub'
-		}
+const links = Array.from(menuItem);
 
-		if (link.closest('.menu_main')) {
-			return false
-		}
-	}
+for (let i = 0; i < menuLink.length; i++) { 
+	menuLink[i].onclick = function () {
+		if (menuItem[i].querySelector('.menu_sub') !== null && menuItem[i].querySelector('.menu_active') === null) {
+
+            links.forEach((element, index) => {
+                if (element.querySelector('.menu_active')) {
+                    links[index].querySelector('.menu_sub').classList.remove('menu_active');
+                }
+            });
+
+            menuItem[i].querySelector('.menu_sub').classList.add('menu_active');
+            return menuItem[i].href = false;
+        } else if (menuItem[i].querySelector('.menu_sub') !== null && menuItem[i].querySelector('.menu_active') !== null) {
+            menuItem[i].querySelector('.menu_sub').classList.remove('menu_active');
+            return menuItem[i].href = false;
+        }
+    }
 }
