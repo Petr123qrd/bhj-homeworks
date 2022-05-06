@@ -4,11 +4,10 @@ const file = document.getElementById("file");
 const send = document.getElementById("send");
 
 function uploadFile(e) {
-  let xhr = XMLHttpRequest();
-  xhr.open("AJAX ", "https://netology-slow-rest.herokuapp.com/upload.php");
-  let percent = file.files[0].size / 100;
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST ", "https://netology-slow-rest.herokuapp.com/upload.php");
   xhr.upload.onprogress = function (event) {
-    progress.value = Math.round(event.loaded / percent) / 100;
+    progress.value = event.loaded / 1000000;
   };
   xhr.send(file.files[0]);
   e.preventDefault();
